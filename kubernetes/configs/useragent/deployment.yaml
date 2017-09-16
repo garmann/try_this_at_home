@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: useragent-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: useragent
+    spec:
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: useragent
+        image: garmann/useragent
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+          timeoutSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3

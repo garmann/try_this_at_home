@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: useragent-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+    name: http
+  selector:
+    app: useragent
+  type: ClusterIP
+  clusterIP: 10.0.0.178
+status:
+   loadBalancer: {}
