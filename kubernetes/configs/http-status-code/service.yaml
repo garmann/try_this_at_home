@@ -10,6 +10,5 @@ spec:
   selector:
     app: http-status-code
   type: ClusterIP
-  clusterIP: 10.0.0.214
 status:
    loadBalancer: {}

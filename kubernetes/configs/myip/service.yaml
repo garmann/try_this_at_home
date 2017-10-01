@@ -10,6 +10,5 @@ spec:
   selector:
     app: myip
   type: ClusterIP
-  clusterIP: 10.0.0.24
 status:
    loadBalancer: {}
