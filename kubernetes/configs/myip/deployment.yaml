@@ -11,6 +11,12 @@ spec:
     spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "foo.local"
+        - "bar.local"
+        - "test.test.local"
       containers:
       - name: myip
         image: garmann/myip
